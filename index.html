@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   پورتفولیو | توسعه&zwnj;دهنده وب و نرم&zwnj;افزار
+  </title>
+  <meta content="پورتفولیوی برنامه&zwnj;نویسی؛ طراحی وب، Python و توسعه نرم&zwnj;افزار." name="description"/>
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+  <style>
+   :root {
+      --bg:#090b14;
+      --panel:#111827;
+      --panel2:#171b2b;
+      --text:#f4f5fb;
+      --muted:#a6aec2;
+      --line:#2a3044;
+      --mint:#68f0c0;
+      --violet:#a99bff;
+      --orange:#ffb86b;
+      --blue:#78caff
+}
+* {
+      box-sizing:border-box;
+      margin:0;
+      padding:0
+}
+html {
+      scroll-behavior:smooth
+}
+body {
+      font-family:Vazirmatn,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.9;
+      overflow-x:hidden
+}
+body:before {
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-2;
+      background:radial-gradient(ellipse at 12% 12%,#233c5b80,transparent 35%),radial-gradient(ellipse at 88% 24%,#50305c66,transparent 32%),radial-gradient(ellipse at 50% 95%,#14534355,transparent 35%),linear-gradient(135deg,#090b14,#101321 55%,#0a1018)
+}
+body:after {
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      opacity:.18;
+      background-image:linear-gradient(#9aa8c51a 1px,transparent 1px),linear-gradient(90deg,#9aa8c51a 1px,transparent 1px);
+      background-size:44px 44px;
+      mask-image:linear-gradient(to bottom,black,transparent 85%)
+}
+a {
+      color:inherit;
+      text-decoration:none
+}
+.wrap {
+      width:min(1120px,90%);
+      margin:auto
+}
+.nav {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:23px 0;
+      border-bottom:1px solid #ffffff12
+}
+.brand {
+      font-weight:800;
+      font-size:1.15rem;
+      letter-spacing:.02em
+}
+.brand b {
+      color:var(--mint)
+}
+.navlinks {
+      display:flex;
+      gap:25px;
+      color:var(--muted);
+      font-size:.9rem
+}
+.navlinks a:hover {
+      color:var(--mint)
+}
+.hero {
+      padding:105px 0 90px;
+      position:relative
+}
+.kicker {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border:1px solid #68f0c044;
+      background:#68f0c00c;
+      color:var(--mint);
+      padding:5px 14px;
+      border-radius:99px;
+      font-size:.85rem
+}
+.pulse {
+      width:7px;
+      height:7px;
+      border-radius:50%;
+      background:var(--mint);
+      box-shadow:0 0 15px var(--mint)
+}
+h1 {
+      font-size:clamp(2.5rem,6.5vw,5.5rem);
+      line-height:1.25;
+      letter-spacing:-.04em;
+      margin:24px 0;
+      max-width:900px
+}
+h1 .gradient {
+      background:linear-gradient(90deg,var(--mint),var(--blue),var(--violet));
+      color:transparent;
+      background-clip:text
+}
+.lead {
+      max-width:690px;
+      color:var(--muted);
+      font-size:1.08rem
+}
+.actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:13px;
+      margin-top:32px
+}
+.btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:11px 22px;
+      border-radius:12px;
+      font-weight:700;
+      border:1px solid var(--line);
+      transition:.25s
+}
+.btn.main {
+      background:var(--mint);
+      color:#07130f;
+      border-color:var(--mint)
+}
+.btn:hover {
+      transform:translateY(-3px)
+}
+.btn.ghost:hover {
+      border-color:var(--violet);
+      color:var(--violet)
+}
+.hero-meta {
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+      margin-top:52px;
+      color:var(--muted);
+      font-size:.85rem
+}
+.hero-meta span {
+      border-right:2px solid var(--orange);
+      padding-right:10px
+}
+section {
+      padding:76px 0
+}
+.section-head {
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+      margin-bottom:30px
+}
+.eyebrow {
+      color:var(--orange);
+      font-size:.85rem
+}
+.section-head h2 {
+      font-size:clamp(1.8rem,4vw,2.7rem);
+      line-height:1.4
+}
+.section-head p {
+      color:var(--muted);
+      max-width:470px
+}
+.skills {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:14px
+}
+.skill {
+      background:linear-gradient(145deg,#171d2d,#101522);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px
+}
+.skill:nth-child(4n+1) .symbol {
+      color:var(--mint)
+}
+.skill:nth-child(4n+2) .symbol {
+      color:var(--violet)
+}
+.skill:nth-child(4n+3) .symbol {
+      color:var(--orange)
+}
+.skill:nth-child(4n) .symbol {
+      color:var(--blue)
+}
+.symbol {
+      font-size:1.5rem;
+      font-weight:800
+}
+.skill h3 {
+      font-size:1.05rem;
+      margin:8px 0 4px
+}
+.skill p {
+      color:var(--muted);
+      font-size:.85rem
+}
+.projects {
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px
+}
+.project {
+      position:relative;
+      overflow:hidden;
+      min-height:320px;
+      border-radius:22px;
+      border:1px solid var(--line);
+      padding:26px;
+      background:linear-gradient(145deg,#151c2c,#10131e)
+}
+.project:before {
+      content:"";
+      position:absolute;
+      width:260px;
+      height:260px;
+      border-radius:50%;
+      filter:blur(1px);
+      opacity:.18;
+      right:-90px;
+      top:-110px;
+      background:var(--glow,var(--mint))
+}
+.project.lumora {
+      --glow:var(--orange)
+}
+.project.python {
+      --glow:var(--violet)
+}
+.project-top {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      color:var(--muted);
+      font-size:.8rem;
+      position:relative
+}
+.project-mark {
+      display:grid;
+      place-items:center;
+      width:52px;
+      height:52px;
+      border-radius:15px;
+      background:#ffffff0b;
+      border:1px solid #ffffff20;
+      font-size:1.4rem;
+      color:var(--glow,var(--mint))
+}
+.project h3 {
+      font-size:1.6rem;
+      margin:25px 0 8px;
+      position:relative
+}
+.project p {
+      color:var(--muted);
+      max-width:460px;
+      position:relative
+}
+.chips {
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:20px;
+      position:relative
+}
+.chips span {
+      font-size:.75rem;
+      padding:4px 10px;
+      border:1px solid #ffffff20;
+      border-radius:99px;
+      color:#d7dbea
+}
+.project-link {
+      display:inline-flex;
+      margin-top:25px;
+      color:var(--glow,var(--mint));
+      font-weight:700;
+      position:relative
+}
+.project-link:hover {
+      gap:10px
+}
+.services {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px
+}
+.service {
+      padding:23px;
+      border-radius:17px;
+      background:#111827b8;
+      border:1px solid var(--line)
+}
+.service h3 {
+      margin:10px 0
+}
+.service p {
+      color:var(--muted);
+      font-size:.9rem
+}
+.service .symbol {
+      font-size:1.3rem
+}
+.contact {
+      border:1px solid #68f0c033;
+      border-radius:24px;
+      padding:clamp(25px,5vw,55px);
+      background:linear-gradient(115deg,#102c2a,#17182a 60%,#282039);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px
+}
+.contact h2 {
+      font-size:clamp(1.7rem,4vw,2.8rem)
+}
+.contact p {
+      color:var(--muted);
+      margin-top:8px
+}
+.contact .actions {
+      margin:0
+}
+footer {
+      padding:28px 0;
+      color:var(--muted);
+      font-size:.82rem;
+      border-top:1px solid #ffffff12;
+      margin-top:70px
+}
+.foot {
+      display:flex;
+      justify-content:space-between;
+      gap:15px;
+      flex-wrap:wrap
+}
+@media(max-width:800px) {
+  .skills {
+        grid-template-columns:repeat(2,1fr)
+  }
+  .projects,.services {
+        grid-template-columns:1fr
+  }
+  .hero {
+        padding:75px 0
+  }
+  .section-head {
+        display:block
+  }
+  .section-head p {
+        margin-top:10px
+  }
+  .contact {
+        align-items:flex-start;
+        flex-direction:column
+  }
+  .navlinks {
+        gap:12px;
+        font-size:.78rem
+  }
+}
+@media(max-width:480px) {
+  .navlinks a:nth-child(2) {
+        display:none
+  }
+  .skills {
+        grid-template-columns:1fr 1fr
+  }
+  .project {
+        min-height:300px
+  }
+  .hero-meta {
+        gap:12px
+  }
+}
+  </style>
+ </head>
+ <body>
+  <header class="wrap">
+   <nav class="nav">
+    <a class="brand" href="#top">
+      ARTA CODE
+     <span>
+      <b>
+       .
+      </b>
+     </span>
+    </a>
+    <div class="navlinks">
+     <a href="#skills">
+      مهارت&zwnj;ها
+     </a>
+     <a href="#projects">
+      نمونه&zwnj;کارها
+     </a>
+     <a href="#services">
+      خدمات
+     </a>
+     <a href="#contact">
+      ارتباط
+     </a>
+    </div>
+   </nav>
+  </header>
+  <main id="top">
+   <section class="hero wrap">
+    <div class="kicker">
+     <i class="pulse">
+     </i>
+     برنامه&zwnj;نویس و توسعه&zwnj;دهنده وب
+    </div>
+    <h1>
+     Arta code تبدیل ایده ها به کد&zwnj;ها
+     <br/>
+     <span class="gradient">
+      به محصول تبدیل شوند.
+     </span>
+    </h1>
+    <p class="lead">
+     طراحی و توسعه وب&zwnj;سایت و ابزارهای دیجیتال با تمرکز بر تجربه کاربری، ساختار تمیز و راه&zwnj;حل&zwnj;های کاربردی. اینجا می&zwnj;توانی مهارت&zwnj;ها و پروژه&zwnj;های من را ببینی.
+    </p>
+    <div class="actions">
+     <a class="btn main" href="#contact">
+      گفت&zwnj;وگو درباره پروژه &larr;
+     </a>
+     <a class="btn ghost" href="#projects">
+      دیدن نمونه&zwnj;کارها
+     </a>
+    </div>
+    <div class="hero-meta">
+     <span>
+      Python
+     </span>
+     <span>
+      Web Development
+     </span>
+     <span>
+      SQL &amp; WordPress
+     </span>
+    </div>
+   </section>
+   <section class="wrap" id="skills">
+    <div class="section-head">
+     <div>
+      <div class="eyebrow">
+       01 / توانمندی&zwnj;ها
+      </div>
+      <h2>
+       ابزارهایی که با آن&zwnj;ها کار می&zwnj;کنم
+      </h2>
+     </div>
+     <p>
+      مهارت&zwnj;ها بر اساس تجربه و آشنایی فعلی معرفی شده&zwnj;اند؛ جزئیات هر پروژه را می&zwnj;توان در نمونه&zwnj;کارها بررسی کرد.
+     </p>
+    </div>
+    <div class="skills">
+     <article class="skill">
+      <div class="symbol">
+       Py
+      </div>
+      <h3>
+       Python
+      </h3>
+      <p>
+       برنامه&zwnj;نویسی و ساخت ابزارهای کاربردی
+      </p>
+     </article>
+     <article class="skill">
+      <div class="symbol">
+       &lt;/&gt;
+      </div>
+      <h3>
+       HTML &amp; CSS
+      </h3>
+      <p>
+       ساخت صفحات وب و رابط&zwnj;های واکنش&zwnj;گرا
+      </p>
+     </article>
+     <article class="skill">
+      <div class="symbol">
+       SQL
+      </div>
+      <h3>
+       پایگاه داده
+      </h3>
+      <p>
+       آشنایی با کوئری&zwnj;ها و مدیریت داده
+      </p>
+     </article>
+     <article class="skill">
+      <div class="symbol">
+       WP
+      </div>
+      <h3>
+       WordPress
+      </h3>
+      <p>
+       طراحی و راه&zwnj;اندازی وب&zwnj;سایت
+      </p>
+     </article>
+     <article class="skill">
+      <div class="symbol">
+       Qt
+      </div>
+      <h3>
+       Qt Designer
+      </h3>
+      <p>
+       آشنایی با طراحی رابط نرم&zwnj;افزار
+      </p>
+     </article>
+     <article class="skill">
+      <div class="symbol">
+       API
+      </div>
+      <h3>
+       مسیر بک&zwnj;اند
+      </h3>
+      <p>
+       در حال توسعه مهارت&zwnj;ها در سمت سرور
+      </p>
+     </article>
+     <article class="skill">
+      <div class="symbol">
+       AI
+      </div>
+      <h3>
+       ابزارهای هوش مصنوعی
+      </h3>
+      <p>
+       استفاده از ابزارها در فرایند ساخت و ایده&zwnj;پردازی
+      </p>
+     </article>
+     <article class="skill">
+      <div class="symbol">
+       &nearrow;
+      </div>
+      <h3>
+       یادگیری مداوم
+      </h3>
+      <p>
+       تمرکز بر ساخت پروژه&zwnj;های واقعی و قابل ارائه
+      </p>
+     </article>
+    </div>
+   </section>
+   <section class="wrap" id="projects">
+    <div class="section-head">
+     <div>
+      <div class="eyebrow">
+       02 / کارهای منتخب
+      </div>
+      <h2>
+       نمونه&zwnj;کارها
+      </h2>
+     </div>
+     <p>
+      یک نمونه طراحی وب در این بخش قرار گرفته است. با اضافه&zwnj;شدن پروژه&zwnj;های واقعی، این مجموعه کامل&zwnj;تر می&zwnj;شود.
+     </p>
+    </div>
+    <div class="projects">
+     <article class="project lumora">
+      <div class="project-top">
+       <span>
+        WEB DESIGN / 01
+       </span>
+       <div class="project-mark">
+        L
+       </div>
+      </div>
+      <h3>
+       Lumora
+      </h3>
+      <p>
+       وب&zwnj;سایت استودیوی طراحی و مهندسی مستقل با تجربه بصری پرجزئیات، بخش&zwnj;های معرفی، خدمات و نمونه&zwnj;کارها. این پروژه به&zwnj;عنوان نمونه طراحی در پورتفولیو قرار گرفته است.
+      </p>
+      <div class="chips">
+       <span>
+        HTML
+       </span>
+       <span>
+        CSS
+       </span>
+       <span>
+        JavaScript
+       </span>
+       <span>
+        Responsive UI
+       </span>
+      </div>
+      <a class="project-link" href="lumora.html" rel="noopener" target="_blank">
+       مشاهده پروژه &nearrow;
+      </a>
+     </article>
+     <article class="project python">
+      <div class="project-top">
+       <span>
+        IN PROGRESS / 02
+       </span>
+       <div class="project-mark">
+        Py
+       </div>
+      </div>
+      <h3>
+       پروژه Python
+      </h3>
+      <p>
+       این جایگاه برای یکی از پروژه&zwnj;های پایتون تو آماده شده است. بعد از انتخاب پروژه واقعی، توضیح و لینک کد را جایگزین می&zwnj;کنیم.
+      </p>
+      <div class="chips">
+       <span>
+        Python
+       </span>
+       <span>
+        Coming soon
+       </span>
+      </div>
+      <a class="project-link" href="#contact">
+       در حال آماده&zwnj;سازی
+      </a>
+     </article>
+    </div>
+   </section>
+   <section class="wrap" id="services">
+    <div class="section-head">
+     <div>
+      <div class="eyebrow">
+       03 / همکاری
+      </div>
+      <h2>
+       چه کمکی می&zwnj;توانم بکنم؟
+      </h2>
+     </div>
+    </div>
+    <div class="services">
+     <article class="service">
+      <div class="symbol" style="color:var(--mint)">
+       01
+      </div>
+      <h3>
+       طراحی وب&zwnj;سایت
+      </h3>
+      <p>
+       ساخت صفحات معرفی و وب&zwnj;سایت&zwnj;های واکنش&zwnj;گرا متناسب با نیاز پروژه.
+      </p>
+     </article>
+     <article class="service">
+      <div class="symbol" style="color:var(--violet)">
+       02
+      </div>
+      <h3>
+       سفارشی&zwnj;سازی WordPress
+      </h3>
+      <p>
+       راه&zwnj;اندازی یا بهبود وب&zwnj;سایت&zwnj;های وردپرسی و صفحات آن&zwnj;ها.
+      </p>
+     </article>
+     <article class="service">
+      <div class="symbol" style="color:var(--orange)">
+       03
+      </div>
+      <h3>
+       ابزارهای Python
+      </h3>
+      <p>
+       بررسی نیازمندی&zwnj;ها و ساخت ابزارهای کوچک و کاربردی در محدوده مهارت فعلی.
+      </p>
+     </article>
+    </div>
+   </section>
+   <section class="wrap" id="contact">
+    <div class="contact">
+     <div>
+      <div class="eyebrow">
+       04 / تماس
+      </div>
+      <h2>
+       پروژه&zwnj;ای برای ساختن داری؟
+      </h2>
+      <p>
+       برای صحبت درباره ایده یا درخواست همکاری پیام بده.
+      </p>
+     </div>
+     <div class="actions">
+      <a class="btn main" href="mailto:YOUR_EMAIL@gmail.com">
+       ایمیل به من
+      </a>
+      <a class="btn ghost" href="tel:YOUR_PHONE">
+       تماس تلفنی
+      </a>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="wrap foot">
+    <span>
+     &copy; 2026 &mdash; پورتفولیوی شخصی
+    </span>
+    <span>
+     ایمیل و شماره تماس را در کد جایگزین کن.
+    </span>
+   </div>
+  </footer>
+ </body>
+</html>
